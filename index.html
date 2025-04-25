@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  
+
   <!-- packages -->
   <script src="https://cdn.plot.ly/plotly-3.0.1.min.js" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-  
+
+  <link rel="stylesheet" href="./index.css">
   <title>Kelompok 9 GKV</title>
 </head>
-<body>
-  <div id="root"></div>
 
-  <script src="./index.js"></script>
+<body>
+  <div id="root">
+    <div id="scatter-plot"></div>
+    <div id="parallel-plot"></div>
+    <div id="heatmap-plot"></div>
+  </div>
+
+  <script src="js/scatter-plot.js"></script>
+  <script src="js/heatmap.js"></script>
+  <script src="js/parallel-plot.js"></script>
 </body>
+
 </html>
