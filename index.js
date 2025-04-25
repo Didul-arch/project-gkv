@@ -1,10 +1,32 @@
-var data = [{
-  x: [0, 10, 20, 30, 40, 50],
-  y: [0, 10, 20, 30, 40, 50]
-}];
+fetch('./data/fertilizer_recommendation_dataset.csv')
+  .then(response => response.text())
+  .then(csvData => {
+    const result = Papa.parse(csvData, {
+      dynamicTyping: true
+    });
 
-var layout = {font: {size: 18}};
+    const data = result.data;
+    console.log(data)
+  })
+  .catch(err => console.error("error: ", err.message));
+
+  const plotData = [{
+    mode: 'markers',
+    type: 'heatmap',
+    marker: {
+      size: 8,
+      color: 'blue',
+      opacity: 0.6
+    }
+  }];
+
+var layout = {
+  font: {size: 18},
+  title: 'perbandingan nitrogen vs phospor',
+  xaxis: {title: 'nitrogen'},
+  yaxis: {title: 'phosporus'}
+};
 var config = {responsive: true};
 
 const heatMap = document.getElementById('root');
-Plotly.newPlot(heatMap, data, layout, config);
+Plotly.newPlot(heatMap, plotData, layout, config);
